@@ -1,0 +1,20 @@
+
+<div *ngIf="persons; else elseBlock">
+  <table> 
+    <tr>
+      <th>Tracking no.</th>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>Postal code</th>
+    </tr>
+    <tr *ngFor="let person of persons" (click)="selectedPerson(person)">
+      <td>{{ person.id }}</td>
+      <td>{{ person.name }}</td>
+      <td><a>{{ person.email }}</a></td>
+      <td>{{ person.postal_code }}</td>
+    </tr>
+  </table>
+</div>
+<ng-template #elseBlock>Loading...</ng-template>
+
+<app-child [person]="person" ></app-child>
